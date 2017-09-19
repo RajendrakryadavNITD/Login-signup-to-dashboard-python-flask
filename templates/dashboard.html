@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Dashboard
+	<small>Welcome {{session.username}}</small></h1>
+	<a class="btn btn-success" href="/add_order">Add Order </a>
+	<hr>
+	<table class="table table-striped">
+		<tr>
+			<th>Order ID</th>
+			<th>Product Name</th>
+			<th>Order Status</th>
+			<th>Product URL</th>
+			<th>Cost Price</th>
+			<th></th>
+		</tr>
+		{% for article in articles %}
+			<tr>
+				<td>{{article.order_id}}</td>
+				<td>{{article.product_name}}</td>
+				<td>{{article.order_status}}</td>
+				<td><a href=""> {{article.product_url}} </a></td>
+				<td>{{article.cost_price}}</td>
+				<td></td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
